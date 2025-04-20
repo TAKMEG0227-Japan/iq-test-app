@@ -1,0 +1,9 @@
+[
+  {
+    "id": "Q0004",
+    "question": "Which figure completes the pattern?",
+    "image": "Q0004.png",
+    "options": ["A", "B", "C", "D", "E", "F"],
+    "answer": "C"
+  }
+]
