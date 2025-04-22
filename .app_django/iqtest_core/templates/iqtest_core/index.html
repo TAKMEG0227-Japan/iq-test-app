@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IQ Test for Mensa</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      background-color: #fdfdfd;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    form {
+      text-align: center;
+      font-size: 18px;
+    }
+    input[type="number"], select {
+      font-size: 18px;
+      padding: 8px;
+      margin: 10px 0;
+      width: 200px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #0057ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #003ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>IQ test for Mensa</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label>年齢: </label><br>
+      <input type="number" name="age" value="35" required>
+    </div>
+    <div>
+      <label>性別: </label><br>
+      <select name="gender">
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+        <option value="other" selected>その他 / 不明</option>
+      </select>
+    </div>
+    <button type="submit">テストを始める</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IQ Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 10px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      justify-items: center;
+    }
+    img.option {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+    img.problem {
+      max-width: 600px;  /* ← ここを400→600に変更しました */
+      width: 100%;
+    }
+    .instruction {
+      margin: 15px 0;
+      font-size: 1.1em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>IQ test for Mensa</h1>
+  <h3>Question {{ qnum }} / {{ total }}</h3>
+
+  <div>
+    <img src="/static/img/{{ q.image }}" alt="problem" class="problem">
+  </div>
+
+  <p class="instruction">Please choose the most suitable image to complete the pattern.</p>
+  <p class="instruction">最適な画像を選んでください</p>
+
+  <form method="post" action="/submit/{{ qnum }}/">
+    {% csrf_token %}
+    <div class="grid">
+      {% for key, img in q.option_images.items %}
+        <button type="submit" name="selected" value="{{ key }}" style="border:none; background:none; padding:0;">
+          <img src="/static/img/{{ img }}" alt="option {{ key }}" class="option">
+        </button>
+      {% endfor %}
+    </div>
+  </form>
+
+</body>
+</html>
+

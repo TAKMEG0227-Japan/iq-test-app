@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IQ Test - Start</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 30px;
+    }
+    form {
+      display: inline-block;
+      text-align: left;
+    }
+    label, input, select {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 6px 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧠 IQ Test for Mensa</h2>
+  <p>年齢と性別を入力してください。 / Please enter your age and gender.</p>
+
+  <form action="{{ url_for('start') }}" method="POST">
+    <label>Age / 年齢</label>
+    <input type="number" name="age" min="5" max="120" value="35" required>
+
+    <label>Gender / 性別</label>
+    <select name="gender">
+      <option value="male">男性 / Male</option>
+      <option value="female">女性 / Female</option>
+      <option value="other" selected>不明 / Other</option>
+    </select>
+
+    <button type="submit">Start</button>
+  </form>
+</body>
+</html>
+
